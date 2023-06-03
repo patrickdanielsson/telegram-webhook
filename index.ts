@@ -48,13 +48,7 @@ router
     const requestBodyString = await bodyParser.value;
     let formattedBody;
 
-    try {
-      formattedBody = formatJSON(
-        JSON.parse(requestBodyString) as Record<string, any>,
-      );
-    } catch (_) {
-      formattedBody = requestBodyString;
-    }
+    formattedBody = requestBodyString;
 
     const api = `https://api.telegram.org/bot${botToken}/sendMessage`;
     const payload = {
